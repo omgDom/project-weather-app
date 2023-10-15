@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --thatGreen: rgba(161, 202, 192, 0.644);
+  --weatherAppclr: rgb(255, 255, 255);
+}
+
+*  {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--thatGreen);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .weather-app {
+    max-width: 400px;
+    height: 700px;
+    background-color: var(--weatherAppclr);
+    margin: 40px auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 5px 10px 20px rgb(169, 167, 167);
+  }
+  
+  .search-bar {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .searchBtn {
+    background-color: var(--weatherAppclr);
+    outline: none;
+    font-size: 16px;
+    margin-left: 4px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+  }
+
+  .searchBtn:hover {
+    margin: 0;
+    transform: scale(1.04);
+  }
+
+  #locationInput {
+    outline: none;
+    padding: 4px 6px;
+    border-radius: 8px;
+  }
+  
+  .top-half {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--thatGreen);
+    border-radius: 8px;
+    margin: 30px 0;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .current-weather h3 {
+    font-size: 28px;
+  }
+  
+  .weather-app.rainy .current-weather {
+    background-image: url('./img/rain.jpg');
+    background-size: 100px;
+    animation: rain 0.5s linear infinite;
+  }
+  
+  @keyframes rain {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 100px;
+    }
+  }
+
+  .time-info p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .bottom-half {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+.forecast-days div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+}
+  
+.forecast-day {
+  flex: 0 0 100%;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  overflow: hidden;
+}
+  
+.forecast-day h4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.forecast-day img {
+  width: 40px;
+  height: 40px;
+}
+  
+@media (max-width: 400px) {
+  .weather-app {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .current-weather h3 {
+    font-size: 20px;
+  }
+
+  .forecast-day p {
+    font-size: 14px;
+  }
+}
+
+/* Keyframes for rain animation */
+@keyframes rain {
+  from {
+    transform: rotate(95deg) translateX(0);
+  }
+  to {
+    transform: rotate(95deg) translateX(calc(800px));
+  }
+}
+
+/* Keyframes for fading out */
+@keyframes fadeout {
+  to {
+    opacity: 0;
+  }
+}
+  
+.hidden {
+  display: none;
+  transition: transform 1s ease 0s;
+}
+
+#weather-display {
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease;
+}
