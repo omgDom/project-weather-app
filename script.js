@@ -47,7 +47,7 @@ function displayWeatherData(data) {
 
     locationName.textContent = `${data.city.name}, ${data.city.country}`;
 
-    currentTemperature.textContent = `${Math.round(data.list[0].main.temp)}°C`;
+    currentTemperature.textContent = `${Math.round(data.list[0].main.temp).toFixed(1)}°C`;
     conditions.textContent = data.list[0].weather[0].description;
 
     sunrise.textContent = `Sunrise: ${formatTimeToTwoDigits(data.city.sunrise)}`;
@@ -66,7 +66,7 @@ function displayWeatherData(data) {
         if (!uniqueDays.has(dayOfWeek)) {
             uniqueDays.add(dayOfWeek);
 
-            const temperature = `${Math.round(forecast.main.temp)}°C`;
+            const temperature = `${Math.round(forecast.main.temp).toFixed(1)}°C`;
             const windSpeed = `${Math.round(forecast.wind.speed.toFixed(1))} m/s`;
             const weatherIcon = `<img src="http://openweathermap.org/img/w/${forecast.weather[0].icon}.png" alt="${forecast.weather[0].description}">`;
 
